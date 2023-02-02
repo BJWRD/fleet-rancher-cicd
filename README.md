@@ -44,10 +44,60 @@ This command will run a Rancher container on port 80 and 443.
  
 ![image](https://user-images.githubusercontent.com/83971386/214005286-8465807a-abe0-410e-a1cd-aa90e159811e.png)
 
-Once completed you will then be signed into the Rancher Dashboard -
+## Cluster Importation
 
-<img width="580" alt="image" src="https://user-images.githubusercontent.com/83971386/216151053-a4967d15-5a77-4006-8c3e-4a925ae151d7.png">
+### 1. Importing the Cluster 
+Once logged in, you will be presented with the following screen -
 
+![image](https://user-images.githubusercontent.com/83971386/214011251-c7cbcff6-c921-4e8c-8a3d-edfd1f1f4c5a.png)
+
+You will need to select the 'Import Existing' button, followed by 'Custom'.
+
+![image](https://user-images.githubusercontent.com/83971386/214011626-7192889e-bb16-482f-b0ad-90ed60230f1f.png)
+
+Enter the name of the cluster and description, then select the 'Create' button.
+
+**NOTE:** There is also the option of entering environment variables and assigning a label/annotation.
+
+<img width="506" alt="image" src="https://user-images.githubusercontent.com/83971386/214292910-67bd8975-40c6-4896-9eb5-15c3c196b9a3.png">
+
+### 2. Register the Cluster into Rancher
+Now it's time to register the Cluster into Rancher. This can be done by following the instructions within the screenshot below -
+
+![image](https://user-images.githubusercontent.com/83971386/214012981-ba7d4cd9-7c02-4cfb-8a44-202aa4783b2a.png)
+
+These commands will need to be entered within the running Minikube Cluster -
+
+      kubectl apply -f https://localhost/v3/import/7lzggvls7m2cdhr8ptl87nflwktjdgjn5cpr99kwb7tvsjvm8zvkvr_c-m-5ql2dkvx.yaml
+      curl --insecure -sfL https://localhost/v3/import/7lzggvls7m2cdhr8ptl87nflwktjdgjn5cpr99kwb7tvsjvm8zvkvr_c-m-5ql2dkvx.yaml | kubectl apply -f -
+      kubectl create clusterrolebinding cluster-admin-binding --clusterrole cluster-admin --user <your username from your kubeconfig>
+
+**NOTE:** Your kubeconfig username can be found within the following file - `~/.kube/config`
+
+### 3. Cluster Rancher Verification
+Now just wait a few minutes so that your cluster’s State changes from Pending to Active. Once changed, click on your Cluster’s Name and you will see this screen -
+
+<img width="596" alt="image" src="https://user-images.githubusercontent.com/83971386/214292634-fed0144d-98fc-4a46-95ae-4951cbe0c325.png">
+
+This verifies that the Minikube Cluster has been successfully imported within your Rancher setup.
+
+## KubeConfig Setup Verification
+
+### 1. Download the Cluster KubeConfig file
+Access the newly imported cluster and select the following buttons to download the Clusters kubeConfig file -
+
+<img width="511" alt="image" src="https://user-images.githubusercontent.com/83971386/214250194-0ee79f96-1c1b-43a1-b2f8-7ae044575017.png">
+
+### 2. Access the downloaded KubeConfig file
+Using an IDE of your choice, open the downloaded cluster.yaml file, to view your cluster contents -
+
+<img width="439" alt="image" src="https://user-images.githubusercontent.com/83971386/214250672-c882c6a5-cb69-4838-a05f-9805ca980628.png">
+
+### 3. Test Cluster access via Kubectl/KubeConfig
+
+      kubectl get node --kubeconfig=/pathofkubeconfigfile/test.yaml
+
+<img width="284" alt="image" src="https://user-images.githubusercontent.com/83971386/214279744-14dfd4d9-9de6-4c99-9702-d4528e5471e7.png">
  
 ## Fleet Configuration
 
