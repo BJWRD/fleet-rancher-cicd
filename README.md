@@ -31,7 +31,7 @@ This command will run a Rancher container on port 80 and 443.
 
 ### 1. Access the Rancher webpage
 
- To access the Rancher site, type and search your IP address followed by port 443 into your browser -
+ To access the Rancher site, type and search your IP address followed by port 443 into your browser 
  
  Upon the first run you will be asked to enter the following command to retrieve the auto-generated bootstrap password -
  
@@ -101,6 +101,11 @@ Using an IDE of your choice, open the downloaded cluster.yaml file, to view your
  
 ## Fleet Configuration
 
+### 1. Creating a Cluster Group 
+Create the Cluster Group 
+
+Assign the Cluster Group to the imported Cluster using the key and value also. 
+
 ### 1. Adding your Git Repository
 
 Select the three vertical lines in the top-left of the dashboard, followed by the `Continous Delivery` option.
@@ -133,4 +138,6 @@ Then, define these `Step 2:` repository details -
 ## Useful Links -
 * https://fleet.rancher.io
 * https://ranchermanager.docs.rancher.com/v2.5/how-to-guides/new-user-guides/deploy-apps-across-clusters/fleet
+* https://github.com/rancher/fleet-examples/tree/master/single-cluster/helm
+* https://www.youtube.com/watch?v=lNeX_PxnzLM
 
