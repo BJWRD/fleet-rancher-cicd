@@ -102,17 +102,24 @@ Using an IDE of your choice, open the downloaded cluster.yaml file, to view your
 ## Fleet Configuration
 
 ### 1. Creating a Cluster Group 
-Create the Cluster Group 
-
-Assign the Cluster Group to the imported Cluster using the key and value also. 
-
-### 1. Adding your Git Repository
 
 Select the three vertical lines in the top-left of the dashboard, followed by the `Continous Delivery` option.
 
 <img width="229" alt="image" src="https://user-images.githubusercontent.com/83971386/216150978-83815d53-0b89-49ce-9cbe-cfad9308abcf.png">
 
 By default your current Workspace will be set to `fleet-default'.
+
+Select the `Cluster Groups` option on the left-hand side, followed by the `Create` button.
+
+Then enter the relevant Cluster Group details and proceed with the groups creation.
+
+<img width="696" alt="image" src="https://user-images.githubusercontent.com/83971386/219945496-8363292a-3c08-4265-8b09-ca2f16024199.png">
+
+Verify that your cluster is located within the Cluster Group, by selecting the newly created Cluster Group -
+
+<img width="695" alt="image" src="https://user-images.githubusercontent.com/83971386/219945632-ac7f0611-c33d-463e-8e9a-9ac3872897d3.png">
+
+### 1. Adding your Git Repository
 
 Click on `Gitrepos` on the navigation bar 
 <img width="756" alt="image" src="https://user-images.githubusercontent.com/83971386/216155301-bf24de39-7d09-4907-8978-0c3c80c3a42a.png">
